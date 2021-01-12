@@ -33,7 +33,7 @@ export type ENSQueryResult = { valid: false } | { valid: true; ens: string };
 
 export type AddressQueryResult = { valid: false } | { valid: true; ens: string };
 
-const API_BASE = 'http://localhost:8080'
+const API_BASE = 'https://api.poap.xyz'
 
 async function fetchJson<A>(input: RequestInfo, init?: RequestInit): Promise<A> {
     const res = await fetch(input, init);
