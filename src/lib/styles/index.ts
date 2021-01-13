@@ -5,12 +5,36 @@ import NowayWOFF2 from 'assets/fonts/nowayround-regular-webfont.woff2';
 import NowayWOFF from 'assets/fonts/nowayround-regular-webfont.woff';
 import NowayTTF from 'assets/fonts/nowayround-regular-webfont.ttf';
 
+export const BREAKPOINTS = {
+  xs: '480px',
+  sm: '768px',
+  md: '1024px',
+  lg: '1200px',
+  xl: '1400px'
+};
+
+export const FONT_SIZE = {
+  md: '16px'
+}
+
 export const mainStyles = css`
 
   :root {
     /* fonts */
     --main-font: 'noway_round', sans-serif;
     --alt-font: 'Comfortaa', sans-serif;
+    
+    /* colors */
+    --main-color: #6534FF;
+    --footer-color: #8492CE;
+    
+    --system-white: #FFFFFF;
+    --system-light-grey: #EAEDF4;
+    --grey-eth: #F7F7F7;
+  }
+  
+  body {
+    margin: 0;
   }
 
   /* Web3 Modal Hack*/

@@ -1,9 +1,13 @@
 import React, { FC } from 'react';
 
+// UI
+import MainLayout from 'ui/layouts/MainLayout';
+
+
 const UserSignature: FC = () => (
-  <div>
-    <h1>User Signature</h1>
-  </div>
+  <MainLayout>
+    <div>User Signature</div>
+  </MainLayout>
 );
 
 export default UserSignature;

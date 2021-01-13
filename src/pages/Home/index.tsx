@@ -1,9 +1,13 @@
 import React, { FC } from 'react';
 
+// UI
+import MainLayout from 'ui/layouts/MainLayout';
+
+
 const Home: FC = () => (
-  <div>
-    <h1>Home</h1>
-  </div>
+  <MainLayout>
+    <div>Home</div>
+  </MainLayout>
 );
 
 export default Home;
