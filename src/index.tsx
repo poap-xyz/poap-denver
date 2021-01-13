@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Global} from '@emotion/react';
 import {QueryClient, QueryClientProvider} from 'react-query';
-import {ReactQueryDevtools} from 'react-query-devtools';
 
 // Routes
 import Routes from 'lib/routes';
@@ -14,7 +13,6 @@ import {StateProvider} from 'lib/hooks/useWeb3State';
 import {mainStyles, mainFonts} from 'lib/styles';
 
 // Configs
-const isDevelopment = process.env.NODE_ENV === 'development';
 const queryClient = new QueryClient();
 
 ReactDOM.render(
@@ -23,7 +21,6 @@ ReactDOM.render(
       <Routes />
       <Global styles={mainStyles}/>
       <Global styles={mainFonts}/>
-      {isDevelopment && <ReactQueryDevtools/>}
     </StateProvider>
   </QueryClientProvider>,
   document.getElementById('root')

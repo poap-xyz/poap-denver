@@ -1,14 +1,72 @@
-import React, { FC } from 'react';
+import React, {FC} from 'react';
+import styled from '@emotion/styled';
+
+// Assets
+import logo from 'assets/images/POAP.svg';
+import devcon from 'assets/images/devcon.png'
 
 // UI
 import Nabvar from 'ui/styled/Navbar';
-import Container from 'ui/styled/Container'
+import Container from 'ui/styled/Container';
+import Button from 'ui/components/Button';
 
+// Types
+import {UserPoap} from 'lib/types';
 
-const Header: FC = () => (
+type HeaderProps = {
+  isConnected: boolean;
+  connectAction: () => void;
+  disconnectAction: () => void;
+  account: string;
+  tokens: UserPoap[];
+};
+
+// Styled Components
+const HeaderWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+const LogoContainer = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-height: 70px;
+  .poap {
+    height: 83px;
+    position: relative;
+    top: 18px;
+  }
+  .devcon {
+    margin-left: 30px;
+    height: 40px;
+    position: relative;
+  }
+`;
+const ActionContainer = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-height: 70px;
+`;
+
+const Header: FC<HeaderProps> = ({isConnected, connectAction, disconnectAction, account, tokens}) => (
   <Nabvar>
     <Container>
-      <div>Header</div>
+      <HeaderWrapper>
+        <LogoContainer>
+          <img src={logo} alt={'POAP'} className={'poap'}/>
+          <img src={devcon} alt={'Devcon'} className={'devcon'}/>
+        </LogoContainer>
+        <ActionContainer>
+          {isConnected && (
+            <Button text={'Disconnect'} action={disconnectAction}/>
+          )}
+          {!isConnected && (
+            <Button text={'Connect Wallet'} action={connectAction}/>
+          )}
+        </ActionContainer>
+      </HeaderWrapper>
     </Container>
   </Nabvar>
 );

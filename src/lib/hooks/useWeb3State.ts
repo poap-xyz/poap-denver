@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import constate from 'constate';
+import {ethers} from 'ethers';
 import Web3Modal from 'web3modal';
 // @ts-ignore
 import WalletConnectProvider from '@walletconnect/web3-provider';
@@ -57,21 +58,17 @@ const useWeb3State = () => {
   // Functions
   const connectWallet = async (): Promise<string> => {
     try {
-      const _provider = await web3Modal.connect();
-      setIsConnected(true);
-      setProvider(_provider);
+      const providerConnect = await web3Modal.connect();
+      const _provider = new ethers.providers.Web3Provider(providerConnect);
+      const signer = await _provider.getSigner(0);
+      const _account = await signer.getAddress();
 
-      // TODO - review why _web3.eth.getAccounts() is not working
-      let _account = '';
-      if (_provider.selectedAddress) {
-        _account = _provider.selectedAddress;
+      if (_account) {
         setAccount(_account);
+        setIsConnected(true);
+        setProvider(_provider);
+        return _account;
       }
-      if (_provider.accounts) {
-        _account = _provider.accounts[0];
-        setAccount(_account);
-      }
-      return _account;
     } catch (e) {
       console.log('Error > Connecting wallet');
       console.log(e);

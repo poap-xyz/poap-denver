@@ -14,7 +14,11 @@ export const BREAKPOINTS = {
 };
 
 export const FONT_SIZE = {
-  md: '16px'
+  md: '16px',
+}
+
+export const LINE_HEIGHT = {
+  md: '20px',
 }
 
 export const mainStyles = css`
@@ -26,6 +30,7 @@ export const mainStyles = css`
     
     /* colors */
     --main-color: #6534FF;
+    --main-color-contrast: #efeaff;
     --footer-color: #8492CE;
     
     --system-white: #FFFFFF;
@@ -46,6 +51,7 @@ export const mainStyles = css`
   button {
     &:focus {
       box-shadow: none !important;
+      outline: none;
     }
   }
   
