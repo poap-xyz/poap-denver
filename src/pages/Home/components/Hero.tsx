@@ -8,6 +8,9 @@ import {useStateContext} from 'lib/hooks/useWeb3State';
 import {BREAKPOINTS, FONT_SIZE, LINE_HEIGHT} from 'lib/styles';
 import {EVENTS} from 'lib/helpers/constants';
 
+// Assets
+import background from 'assets/images/background.png';
+
 // Types
 import {LocalEvent} from 'lib/types';
 
@@ -21,6 +24,8 @@ const HeroWrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;
   padding: 100px 0 50px;
+  position: relative;
+  z-index: 3;
   @media (min-width: ${BREAKPOINTS.md}) {
     flex-direction: row;
   }
@@ -82,53 +87,67 @@ const TokensWrapper = styled.div`
     }
   }
 `;
+const BackgroundImage = styled.div`
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  background: url(${background}) no-repeat right;
+  background-size: contain;
+  z-index: 1;
+  opacity: 0.5;
+`;
 
+// Component constants
 const sortedEvents = EVENTS.sort(() => Math.random() - 0.5);
 
 const Hero: FC = () => {
   const [tokens] = useState<LocalEvent[]>(sortedEvents.slice(0, 7));
   const {connectWallet, isConnected} = useStateContext();
   return (
-    <Container>
-      <HeroWrapper>
-        <DiscountWrapper>
-          <div className={'main-title'}>
-            Get a 50% discount on your next ticket to Devcon
-          </div>
-          <p>
-            We want to reward our most active community.
-            If you own POAPs, you are eligible to get a discount.
-            Connect your wallet and sign a proof of ownership to apply.
-          </p>
-          <div className={'cta'}>
-            {!isConnected && (
-              <Button action={connectWallet} text={'Connect wallet'}/>
-            )}
-          </div>
-        </DiscountWrapper>
-        <TokensWrapper>
-          <div className={'token-holder'}>
-            <div className={'first-col'}>
-              <Token image={tokens[0].image} name={tokens[0].name}/>
-              <Token image={tokens[1].image} name={tokens[1].name}/>
+    <>
+      <BackgroundImage />
+      <Container>
+        <HeroWrapper>
+          <DiscountWrapper>
+            <div className={'main-title'}>
+              Get a 50% discount on your next ticket to Devcon
             </div>
-          </div>
-          <div className={'token-holder'}>
-            <div className={'second-col'}>
-              <Token image={tokens[2].image} name={tokens[2].name}/>
-              <Token image={tokens[3].image} name={tokens[3].name}/>
-              <Token image={tokens[4].image} name={tokens[4].name}/>
+            <p>
+              We want to reward our most active community.
+              If you own POAPs, you are eligible to get a discount.
+              Connect your wallet and sign a proof of ownership to apply.
+            </p>
+            <div className={'cta'}>
+              {!isConnected && (
+                <Button action={connectWallet} text={'Connect wallet'}/>
+              )}
             </div>
-          </div>
-          <div className={'token-holder'}>
-            <div className={'third-col'}>
-              <Token image={tokens[5].image} name={tokens[5].name}/>
-              <Token image={tokens[6].image} name={tokens[6].name}/>
+          </DiscountWrapper>
+          <TokensWrapper>
+            <div className={'token-holder'}>
+              <div className={'first-col'}>
+                <Token image={tokens[0].image} name={tokens[0].name}/>
+                <Token image={tokens[1].image} name={tokens[1].name}/>
+              </div>
             </div>
-          </div>
-        </TokensWrapper>
-      </HeroWrapper>
-    </Container>
+            <div className={'token-holder'}>
+              <div className={'second-col'}>
+                <Token image={tokens[2].image} name={tokens[2].name}/>
+                <Token image={tokens[3].image} name={tokens[3].name}/>
+                <Token image={tokens[4].image} name={tokens[4].name}/>
+              </div>
+            </div>
+            <div className={'token-holder'}>
+              <div className={'third-col'}>
+                <Token image={tokens[5].image} name={tokens[5].name}/>
+                <Token image={tokens[6].image} name={tokens[6].name}/>
+              </div>
+            </div>
+          </TokensWrapper>
+        </HeroWrapper>
+      </Container>
+    </>
   )
 };
 

@@ -23,10 +23,12 @@ import {BREAKPOINTS, FONT_SIZE} from 'lib/styles';
 
 // Styled Components
 const FooterWrapper = styled.footer`
-  margin-top: 50px;
   box-shadow: inset 0px 1px 0px var(--system-light-grey);
   display: flex;
   flex-direction: column;
+  background: var(--system-white);
+  z-index: 2;
+  position: relative;
 `;
 const FooterContent = styled.div`
   padding: 50px 0;
