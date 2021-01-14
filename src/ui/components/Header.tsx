@@ -9,6 +9,7 @@ import devcon from 'assets/images/devcon.png'
 import Nabvar from 'ui/styled/Navbar';
 import Container from 'ui/styled/Container';
 import Button from 'ui/components/Button';
+import AddressWithPopover from 'ui/components/AddressWithPopover';
 
 // Types
 import {UserPoap} from 'lib/types';
@@ -60,7 +61,11 @@ const Header: FC<HeaderProps> = ({isConnected, connectAction, disconnectAction, 
         </LogoContainer>
         <ActionContainer>
           {isConnected && (
-            <Button text={'Disconnect'} action={disconnectAction}/>
+            <AddressWithPopover
+              account={account}
+              tokens={tokens}
+              disconnectAction={disconnectAction}
+            />
           )}
           {!isConnected && (
             <Button text={'Connect Wallet'} action={connectAction}/>

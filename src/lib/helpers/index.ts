@@ -1,3 +1,9 @@
+const links = {
+    poap: {
+        token: (id: number | string) => `https://app.poap.xyz/token/${id}`,
+    }
+};
+
 const reduceAddress = (address: string) => {
     if (address.length < 10) return address;
     return address.slice(0, 6) + '\u2026' + address.slice(-4);
@@ -13,6 +19,7 @@ const safeGetItem = (key: string, defaultValue = '{}') => {
 };
 
 export {
+    links,
     reduceAddress,
     safeGetItem,
 }

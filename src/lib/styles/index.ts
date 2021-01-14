@@ -33,6 +33,8 @@ export const mainStyles = css`
     --main-color-contrast: #efeaff;
     --footer-color: #8492CE;
     
+    --font-color-1: #6873A4;
+    
     --system-white: #FFFFFF;
     --system-light-grey: #EAEDF4;
     --grey-eth: #F7F7F7;
