@@ -15,10 +15,14 @@ export const BREAKPOINTS = {
 
 export const FONT_SIZE = {
   md: '16px',
+  lg: '20px',
+  xxl: '48px',
 }
 
 export const LINE_HEIGHT = {
   md: '20px',
+  lg: '30px',
+  xxl: '54px',
 }
 
 export const mainStyles = css`
@@ -31,9 +35,9 @@ export const mainStyles = css`
     /* colors */
     --main-color: #6534FF;
     --main-color-contrast: #efeaff;
-    --footer-color: #8492CE;
     
     --font-color-1: #6873A4;
+    --font-color-2: #8492CE;
     
     --system-white: #FFFFFF;
     --system-light-grey: #EAEDF4;

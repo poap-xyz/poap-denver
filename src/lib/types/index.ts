@@ -24,3 +24,8 @@ export type reactQueryParams = {
   pageParams: any;
   queryKey: any[];
 };
+
+export type LocalEvent = {
+  name: string;
+  image: string;
+};

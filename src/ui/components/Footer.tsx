@@ -95,7 +95,7 @@ const AboutContainer = styled.div`
     }
     a {
       text-decoration: none;
-      color: var(--footer-color);
+      color: var(--font-color-2);
       &:hover {
         color:var(--main-color);
       }

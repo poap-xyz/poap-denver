@@ -6,6 +6,7 @@ const Navbar = styled.div`
   top: 0;
   height: 70px;
   box-shadow: 0px 3px 6px rgba(187, 196, 239, 0.656687);
+  background: var(--system-white);
 `;
 
 export default Navbar;

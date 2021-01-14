@@ -186,7 +186,7 @@ const PoapDisplay = styled.div<ScrollerProps>`
 
 
 const AddressWithPopover: FC<AddressWithPopoverProps> = ({account, tokens, disconnectAction}) => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState<boolean>(false);
   const show = () => setVisible(true);
   const hide = () => setVisible(false);
 
