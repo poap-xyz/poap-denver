@@ -18,7 +18,7 @@ const Home: FC = () => {
 
   useEffect(() => {
     if(isConnected) push(ROUTES.userSignature);
-  }, [isConnected]);
+  }, [isConnected, push]);
 
   return (
     <MainLayout>

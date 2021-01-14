@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import styled from '@emotion/styled';
 
 // Constants
-import {BREAKPOINTS, FONT_SIZE, LINE_HEIGHT} from 'lib/styles';
+import {FONT_SIZE, LINE_HEIGHT} from 'lib/styles';
 
 // Types
 import {UserPoap} from 'lib/types';
