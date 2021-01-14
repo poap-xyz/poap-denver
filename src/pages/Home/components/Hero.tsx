@@ -1,9 +1,6 @@
 import React, {FC, useState} from 'react';
 import styled from '@emotion/styled';
 
-// Hooks
-import {useStateContext} from 'lib/hooks/useWeb3State';
-
 // Constants
 import {BREAKPOINTS, FONT_SIZE, LINE_HEIGHT} from 'lib/styles';
 import {EVENTS} from 'lib/helpers/constants';
@@ -98,12 +95,17 @@ const BackgroundImage = styled.div`
   opacity: 0.5;
 `;
 
+// Component type
+type HeroProps = {
+  isConnected: boolean;
+  connectAction: () => void;
+};
+
 // Component constants
 const sortedEvents = EVENTS.sort(() => Math.random() - 0.5);
 
-const Hero: FC = () => {
+const Hero: FC<HeroProps> = ({connectAction, isConnected}) => {
   const [tokens] = useState<LocalEvent[]>(sortedEvents.slice(0, 7));
-  const {connectWallet, isConnected} = useStateContext();
   return (
     <>
       <BackgroundImage />
@@ -120,7 +122,7 @@ const Hero: FC = () => {
             </p>
             <div className={'cta'}>
               {!isConnected && (
-                <Button action={connectWallet} text={'Connect wallet'}/>
+                <Button action={connectAction} text={'Connect wallet'}/>
               )}
             </div>
           </DiscountWrapper>

@@ -16,12 +16,14 @@ export const BREAKPOINTS = {
 export const FONT_SIZE = {
   md: '16px',
   lg: '20px',
+  xl: '28px',
   xxl: '48px',
 }
 
 export const LINE_HEIGHT = {
   md: '20px',
   lg: '30px',
+  xl: '34px',
   xxl: '54px',
 }
 

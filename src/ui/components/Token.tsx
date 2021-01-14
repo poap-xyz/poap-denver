@@ -13,6 +13,7 @@ const TokensWrapper = styled.div`
   width: 120px;
   height: 120px;
   border-radius: 120px;
+  background: var(--sytem-white);
   img {
     width: 100%;
     height: 100%;

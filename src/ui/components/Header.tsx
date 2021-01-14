@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 // Assets
 import logo from 'assets/images/POAP.svg';
-import devcon from 'assets/images/devcon.png'
+import devcon from 'assets/images/devcon.png';
 
 // UI
 import Nabvar from 'ui/styled/Navbar';

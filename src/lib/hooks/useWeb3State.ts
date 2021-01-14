@@ -9,10 +9,8 @@ import WalletConnectProvider from '@walletconnect/web3-provider';
 import { usePoaps } from 'lib/hooks/usePoaps';
 
 // Types
-// import { Transaction } from 'lib/types';
 
 // Helpers
-// import { safeGetItem } from 'lib/helpers';
 
 const useWeb3State = () => {
   // Web3Modal
@@ -40,7 +38,7 @@ const useWeb3State = () => {
         setWeb3Modal(
           new Web3Modal({
             network: 'mainnet',
-            cacheProvider: true,
+            cacheProvider: false,
             providerOptions,
           }),
         );
