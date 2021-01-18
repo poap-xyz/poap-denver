@@ -102,12 +102,13 @@ const SignatureForm: FC<UserTokenProps> = ({account, tokens, mainAction, fallbac
   }, [copied]);
 
   // Constants
-  const message = `I'm owner of account ${account.toLowerCase()} and I want to apply for a builder discount!`;
+  const message = `I am owner of account ${account.toLowerCase()} and I want to apply for a builder discount!`;
   const result = {
-    account,
-    message,
-    signature,
-    tokens: tokens ? tokens.length : 0
+    address: account.toLowerCase(),
+    msg: message,
+    sig: signature,
+    version: "2"
+    // tokens: tokens ? tokens.length : 0
   };
   const formattedResult = JSON.stringify(result, undefined, 4);
 
@@ -132,7 +133,7 @@ const SignatureForm: FC<UserTokenProps> = ({account, tokens, mainAction, fallbac
   }
   const onCopySuccess = () => setCopied(true);
 
-  if (tokens && tokens.length === 0) {
+  if (tokens && tokens.length === 0 && !process.env.REACT_APP_ENABLE_SIGNATURE_ALWAYS) {
     return (
       <Wrapper>
         <Button action={fallbackAction} text={'Disconnect wallet'}/>
