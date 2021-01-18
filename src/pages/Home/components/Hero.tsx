@@ -99,12 +99,13 @@ const BackgroundImage = styled.div`
 type HeroProps = {
   isConnected: boolean;
   connectAction: () => void;
+  isLoading: boolean;
 };
 
 // Component constants
 const sortedEvents = EVENTS.sort(() => Math.random() - 0.5);
 
-const Hero: FC<HeroProps> = ({connectAction, isConnected}) => {
+const Hero: FC<HeroProps> = ({connectAction, isConnected, isLoading}) => {
   const [tokens] = useState<LocalEvent[]>(sortedEvents.slice(0, 7));
   return (
     <>
@@ -121,9 +122,7 @@ const Hero: FC<HeroProps> = ({connectAction, isConnected}) => {
               Connect your wallet and sign a proof of ownership to apply.
             </p>
             <div className={'cta'}>
-              {!isConnected && (
-                <Button action={connectAction} text={'Connect wallet'}/>
-              )}
+              <Button action={connectAction} text={'Connect wallet'} loading={isLoading}/>
             </div>
           </DiscountWrapper>
           <TokensWrapper>

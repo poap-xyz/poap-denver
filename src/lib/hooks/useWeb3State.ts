@@ -4,6 +4,7 @@ import {ethers} from 'ethers';
 import Web3Modal from 'web3modal';
 // @ts-ignore
 import WalletConnectProvider from '@walletconnect/web3-provider';
+import {JsonRpcSigner} from '@ethersproject/providers/src.ts/json-rpc-provider';
 
 // Hooks
 import { usePoaps } from 'lib/hooks/usePoaps';
@@ -25,6 +26,7 @@ const useWeb3State = () => {
 
   // State
   const [account, setAccount] = useState<string>('');
+  const [signer, setSigner] = useState<JsonRpcSigner | null>(null);
   const [web3Modal, setWeb3Modal] = useState<any>(null);
   const [provider, setProvider] = useState<any>(null);
   const [isConnected, setIsConnected] = useState<boolean>(false);
@@ -58,8 +60,10 @@ const useWeb3State = () => {
     try {
       const providerConnect = await web3Modal.connect();
       const _provider = new ethers.providers.Web3Provider(providerConnect);
-      const signer = await _provider.getSigner(0);
-      const _account = await signer.getAddress();
+      const _signer = await _provider.getSigner(0);
+      setSigner(_signer);
+
+      const _account = await _signer.getAddress();
 
       if (_account) {
         setAccount(_account);
@@ -78,10 +82,18 @@ const useWeb3State = () => {
     setIsConnected(false);
     setAccount('');
   };
+  const signMessage = async (message: string): Promise<string> => {
+    if (!signer) {
+      throw Error;
+    }
+    let signature = await signer.signMessage(message);
+    return signature;
+  }
 
   return {
     connectWallet,
     disconnectWallet,
+    signMessage,
     isConnected,
     account,
     poaps,

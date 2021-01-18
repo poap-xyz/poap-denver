@@ -14,7 +14,7 @@ import Token from 'ui/components/Token';
 // Styled Components
 const Wrapper = styled.div`
   text-align: center;
-  padding: 100px 0;
+  padding: 0;
 `;
 const Title = styled.div`
   font-family: var(--alt-font);

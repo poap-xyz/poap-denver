@@ -14,17 +14,18 @@ import Hero from './components/Hero';
 
 const Home: FC = () => {
   const { push } = useHistory();
-  const {connectWallet, isConnected} = useStateContext();
+  const {connectWallet, isConnected, isFetchingPoaps} = useStateContext();
 
   useEffect(() => {
-    if(isConnected) push(ROUTES.userSignature);
-  }, [isConnected, push]);
+    if(isConnected && !isFetchingPoaps) push(ROUTES.userSignature);
+  }, [isConnected, isFetchingPoaps, push]);
 
   return (
     <MainLayout>
       <Hero
         connectAction={connectWallet}
         isConnected={isConnected}
+        isLoading={isFetchingPoaps}
       />
     </MainLayout>
   )

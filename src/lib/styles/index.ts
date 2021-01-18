@@ -36,13 +36,15 @@ export const mainStyles = css`
     
     /* colors */
     --main-color: #6534FF;
-    --main-color-contrast: #efeaff;
+    --main-color-contrast: #F6F9FF;
     
     --font-color-1: #6873A4;
     --font-color-2: #8492CE;
     
     --system-white: #FFFFFF;
     --system-light-grey: #EAEDF4;
+    --system-success: #29A598;
+    --system-error: #F76278;
     --grey-eth: #F7F7F7;
   }
   
