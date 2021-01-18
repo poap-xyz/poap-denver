@@ -86,6 +86,22 @@ const useWeb3State = () => {
     if (!signer) {
       throw Error;
     }
+
+    if (provider.provider.wc) {
+      console.log('Here!');
+      const messageLength = new Blob([message]).size;
+      const ethereumMessage = ethers.utils.toUtf8Bytes(
+        "\x19Ethereum Signed Message:\n" + messageLength + message
+      );
+      const hashedMessage = ethers.utils.keccak256(ethereumMessage);
+      const params = [
+        account,
+        hashedMessage,
+      ];
+      let signature = await provider.provider.connector.signMessage(params);
+      return signature
+    }
+
     let signature = await signer.signMessage(message);
     return signature;
   }
