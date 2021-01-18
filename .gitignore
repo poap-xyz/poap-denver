@@ -130,3 +130,5 @@ fabric.properties
 .env.development
 
 # End of https://www.toptal.com/developers/gitignore/api/webstorm,react
+
+build/
