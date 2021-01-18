@@ -88,7 +88,6 @@ const useWeb3State = () => {
     }
 
     if (provider.provider.wc) {
-      console.log('Here!');
       const messageLength = new Blob([message]).size;
       const ethereumMessage = ethers.utils.toUtf8Bytes(
         "\x19Ethereum Signed Message:\n" + messageLength + message
