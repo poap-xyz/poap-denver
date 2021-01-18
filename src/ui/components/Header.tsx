@@ -1,6 +1,9 @@
 import React, {FC} from 'react';
 import styled from '@emotion/styled';
 
+// Constants
+import {BREAKPOINTS} from 'lib/styles';
+
 // Assets
 import logo from 'assets/images/POAP.svg';
 import devcon from 'assets/images/devcon.png';
@@ -50,6 +53,11 @@ const ActionContainer = styled.div`
   align-items: center;
   max-height: 70px;
 `;
+const ConnectButtonWrapper = styled.div`
+  @media(max-width: ${BREAKPOINTS.xs}) {
+    display: none;
+  }
+`;
 
 const Header: FC<HeaderProps> = ({isConnected, connectAction, disconnectAction, account, tokens}) => (
   <Nabvar>
@@ -68,7 +76,9 @@ const Header: FC<HeaderProps> = ({isConnected, connectAction, disconnectAction, 
             />
           )}
           {!isConnected && (
-            <Button text={'Connect Wallet'} action={connectAction}/>
+            <ConnectButtonWrapper>
+              <Button text={'Connect Wallet'} action={connectAction}/>
+            </ConnectButtonWrapper>
           )}
         </ActionContainer>
       </HeaderWrapper>
