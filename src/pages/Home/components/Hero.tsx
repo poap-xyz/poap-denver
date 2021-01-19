@@ -7,6 +7,7 @@ import {EVENTS} from 'lib/helpers/constants';
 
 // Assets
 import background from 'assets/images/background.png';
+import devcon from 'assets/images/devcon6.png';
 
 // Types
 import {LocalEvent} from 'lib/types';
@@ -114,12 +115,10 @@ const Hero: FC<HeroProps> = ({connectAction, isConnected, isLoading}) => {
         <HeroWrapper>
           <DiscountWrapper>
             <div className={'main-title'}>
-              Get a 50% discount on your next ticket to Devcon
+              Apply to Devcon with your POAP collection
             </div>
             <p>
-              We want to reward our most active community.
-              If you own POAPs, you are eligible to get a discount.
-              Connect your wallet and sign a proof of ownership to apply.
+              Your collection can be used to prove that you are committed to certain type of activities and content and give you access to preferential opportunities like discounts and giveaways. Connect to your web3 wallet to sign a message and confirm ownership of your collection.
             </p>
             <div className={'cta'}>
               <Button action={connectAction} text={'Connect wallet'} loading={isLoading}/>
@@ -135,7 +134,7 @@ const Hero: FC<HeroProps> = ({connectAction, isConnected, isLoading}) => {
             <div className={'token-holder'}>
               <div className={'second-col'}>
                 <Token image={tokens[2].image} name={tokens[2].name}/>
-                <Token image={tokens[3].image} name={tokens[3].name}/>
+                <Token image={devcon} name={'Devcon 6'}/>
                 <Token image={tokens[4].image} name={tokens[4].name}/>
               </div>
             </div>

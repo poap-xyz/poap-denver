@@ -10,8 +10,9 @@ import {ROUTES} from 'lib/helpers/constants';
 
 // UI
 import MainLayout from 'ui/layouts/MainLayout';
-import UserTokens from './components/UserTokens';
+import PageTitle from './components/PageTitle';
 import SignatureForm from './components/SignatureForm';
+import UserTokens from './components/UserTokens';
 
 // Types
 import {UserPoap} from 'lib/types';
@@ -33,13 +34,14 @@ const UserSignature: FC = () => {
   return (
     <MainLayout>
       <Wrapper>
-        <UserTokens tokens={poaps as UserPoap[]} />
+        <PageTitle tokens={poaps as UserPoap[]} />
         <SignatureForm
           account={account}
           tokens={poaps as UserPoap[]}
           fallbackAction={disconnectWallet}
           mainAction={signMessage}
         />
+        <UserTokens tokens={poaps as UserPoap[]} />
       </Wrapper>
     </MainLayout>
   )

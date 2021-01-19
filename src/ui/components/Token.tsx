@@ -16,7 +16,7 @@ const TokensWrapper = styled.div`
   width: 80px;
   height: 80px;
   border-radius: 80px;
-  background: var(--sytem-white);
+  background: var(--system-white);
   
   @media (min-width: ${BREAKPOINTS.sm}) {
     width: 90px;
