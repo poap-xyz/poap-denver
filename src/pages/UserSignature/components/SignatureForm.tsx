@@ -107,8 +107,7 @@ const SignatureForm: FC<UserTokenProps> = ({account, tokens, mainAction, fallbac
     address: account.toLowerCase(),
     msg: message,
     sig: signature,
-    version: "2"
-    // tokens: tokens ? tokens.length : 0
+    tokens: tokens ? tokens.length : 0
   };
   const formattedResult = JSON.stringify(result, undefined, 4);
 
