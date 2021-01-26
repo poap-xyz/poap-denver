@@ -102,7 +102,7 @@ const SignatureForm: FC<UserTokenProps> = ({account, tokens, mainAction, fallbac
   }, [copied]);
 
   // Constants
-  const message = `I am owner of account ${account.toLowerCase()} and I want to apply for a builder discount!`;
+  const message = `I am the owner of account ${account.toLowerCase()} and I want to apply for a Builder discount!`;
   const result = {
     address: account.toLowerCase(),
     msg: message,

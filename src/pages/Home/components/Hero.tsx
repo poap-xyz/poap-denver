@@ -115,10 +115,10 @@ const Hero: FC<HeroProps> = ({connectAction, isConnected, isLoading}) => {
         <HeroWrapper>
           <DiscountWrapper>
             <div className={'main-title'}>
-              Apply to Devcon with your POAP collection
+              Apply for a Devcon Builder Discount with your POAP collection
             </div>
             <p>
-              Your collection can be used to prove that you are committed to certain type of activities and content and give you access to preferential opportunities like discounts and giveaways. Connect to your web3 wallet to sign a message and confirm ownership of your collection.
+              Your collection can be used to prove that you are committed to certain activities and content and give you access to preferential opportunities like discounts and giveaways. Connect to your web3 wallet to sign a message and confirm ownership of your collection.
             </p>
             <div className={'cta'}>
               <Button action={connectAction} text={'Connect wallet'} loading={isLoading}/>
