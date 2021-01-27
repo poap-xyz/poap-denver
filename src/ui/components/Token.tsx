@@ -11,12 +11,12 @@ import {BREAKPOINTS} from 'lib/styles';
 type TokenProps = {
   image: string;
   name: string;
-  checked: boolean;
-  opacity: boolean;
+  withCheck: boolean;
+  withOpacity: boolean;
 };
 
 type TokenWrapperProps = {
-  opacity: boolean;
+  withOpacity: boolean;
 }
 
 // Styled Components
@@ -27,7 +27,12 @@ const TokensWrapper = styled.div<TokenWrapperProps>`
   height: 80px;
   border-radius: 80px;
   background: var(--system-white);
-  opacity: ${(props: TokenWrapperProps) => props.opacity ? 0.4 : 1};
+  opacity: ${(props: TokenWrapperProps) => props.withOpacity ? 0.3 : 1};
+  cursor: pointer;
+  
+  &:hover{
+    transform: scale(1.2);
+  }
   
   @media (min-width: ${BREAKPOINTS.sm}) {
     width: 90px;
@@ -62,13 +67,17 @@ const TokensWrapper = styled.div<TokenWrapperProps>`
   }
 `;
 
-const Token: FC<TokenProps> = ({image, name, opacity, checked}) => (
-  <TokensWrapper opacity={opacity}>
-    <img className={'token'} src={image} alt={name}/>
-    {checked && (
-      <img className={'check'} src={checkSign} alt={'Checked!'} />
-    )}
-  </TokensWrapper>
-);
+const Token: FC<TokenProps> = ({image, name, withOpacity, withCheck}) => {
+  const onClick = () => alert(`Show a nice modal explaining how to get ${name}`);
+
+  return (
+    <TokensWrapper withOpacity={withOpacity} onClick={onClick}>
+      <img className={'token'} src={image} alt={name}/>
+      {withCheck && (
+        <img className={'check'} src={checkSign} alt={'Checked!'} />
+      )}
+    </TokensWrapper>
+  )
+};
 
 export default Token;

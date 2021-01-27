@@ -7,6 +7,7 @@ import WalletConnectProvider from '@walletconnect/web3-provider';
 import {JsonRpcSigner} from '@ethersproject/providers/src.ts/json-rpc-provider';
 
 // Hooks
+import { useEvents } from 'lib/hooks/useEvents';
 import { usePoaps } from 'lib/hooks/usePoaps';
 
 // Types
@@ -31,6 +32,7 @@ const useWeb3State = () => {
   const [provider, setProvider] = useState<any>(null);
   const [isConnected, setIsConnected] = useState<boolean>(false);
 
+  const { data: events, isLoading: isFetchingEvents } = useEvents();
   const { data: poaps, isLoading: isFetchingPoaps } = usePoaps({ account });
 
   // Effects
@@ -112,8 +114,10 @@ const useWeb3State = () => {
     isConnected,
     account,
     poaps,
+    events,
     provider,
-    isFetchingPoaps
+    isFetchingPoaps,
+    isFetchingEvents
   };
 };
 

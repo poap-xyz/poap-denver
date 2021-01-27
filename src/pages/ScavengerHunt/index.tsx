@@ -1,4 +1,4 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import styled from '@emotion/styled';
 
@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 import {useStateContext} from 'lib/hooks/useWeb3State';
 
 // Constants
-import {ROUTES} from 'lib/helpers/constants';
+import {ROUTES, DENVER_EVENTS} from 'lib/helpers/constants';
 
 // UI
 import MainLayout from 'ui/layouts/MainLayout';
@@ -14,7 +14,7 @@ import PageTitle from './components/PageTitle';
 import UserTokens from './components/UserTokens';
 
 // Types
-import {UserPoap} from 'lib/types';
+import {PoapEvent, UserPoap} from 'lib/types';
 
 // Styled Components
 const Wrapper = styled.div`
@@ -23,18 +23,29 @@ const Wrapper = styled.div`
 
 
 const ScavengerHunt: FC = () => {
+  const [denverEvents, setDenverEvents] = useState<PoapEvent[]>([]);
   const { push } = useHistory();
-  const {isConnected, poaps} = useStateContext();
+  const {isConnected, poaps, events} = useStateContext();
 
   useEffect(() => {
     if(!isConnected) push(ROUTES.home);
   }, [isConnected, push]);
 
+  useEffect(() => {
+    if (events) {
+      const _events: PoapEvent[] = events as PoapEvent[];
+      setDenverEvents(_events.filter(each => DENVER_EVENTS.indexOf(each.id) > -1))
+    }
+  }, [events]);
+
   return (
     <MainLayout>
       <Wrapper>
         <PageTitle />
-        <UserTokens tokens={poaps as UserPoap[]} />
+        <UserTokens
+          events={denverEvents}
+          tokens={poaps as UserPoap[]}
+        />
       </Wrapper>
     </MainLayout>
   )

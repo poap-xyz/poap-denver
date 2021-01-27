@@ -37,4 +37,6 @@ export const EVENTS: LocalEvent[] = [
     name: 'Attendee - ETHDenver 2020',
     image: 'https://storage.googleapis.com/poapmedia/attendee-ethdenver-2020-2020-logo-1581548656564.png'
   },
-]
+];
+
+export const DENVER_EVENTS: number[] = [69, 121, 142, 204, 210, 250, 310, 345, 346, 366, 390, 400, 401, 402, 405, 540, 600, 607, 666, 719];

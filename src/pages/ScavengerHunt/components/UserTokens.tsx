@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import styled from '@emotion/styled';
 
 // Types
-import {UserPoap} from 'lib/types';
+import {UserPoap, PoapEvent} from 'lib/types';
 
 // UI Components
 import Container from 'ui/styled/Container';
@@ -27,19 +27,20 @@ const TokensWrapper = styled.div`
 // Component type
 type UserTokenProps = {
   tokens: UserPoap[];
+  events: PoapEvent[];
 };
 
-const UserTokens: FC<UserTokenProps> = ({tokens}) => {
-
-  if (!tokens || (tokens && tokens.length === 0)) return <div/>
+const UserTokens: FC<UserTokenProps> = ({tokens, events}) => {
 
   return (
     <Container>
       <Wrapper>
         <TokensWrapper>
-          {tokens.map((token) => {
+          {events.map((event) => {
+            const userHasPoap = tokens.filter((token) => token.event.id === event.id).length > 0;
             return (
-              <Token image={token.event.image_url} name={token.event.name} key={token.tokenId} checked={true} opacity={false}  />
+              <Token image={event.image_url} name={event.name} key={event.id} withCheck={userHasPoap}
+                     withOpacity={!userHasPoap}/>
             );
           })}
         </TokensWrapper>
