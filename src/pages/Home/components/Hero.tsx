@@ -7,7 +7,6 @@ import {EVENTS} from 'lib/helpers/constants';
 
 // Assets
 import background from 'assets/images/background.png';
-import devcon from 'assets/images/devcon6.png';
 
 // Types
 import {LocalEvent} from 'lib/types';
@@ -115,10 +114,10 @@ const Hero: FC<HeroProps> = ({connectAction, isConnected, isLoading}) => {
         <HeroWrapper>
           <DiscountWrapper>
             <div className={'main-title'}>
-              Apply for a Devcon Builder Discount with your POAP collection
+              Collect your POAPs from ETHDenver Virtual 2021
             </div>
             <p>
-              Your collection can be used to prove that you are committed to certain activities and content and give you access to preferential opportunities like discounts and giveaways. Connect to your web3 wallet to sign a message and confirm ownership of your collection.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
             </p>
             <div className={'cta'}>
               <Button action={connectAction} text={'Connect wallet'} loading={isLoading}/>
@@ -127,21 +126,21 @@ const Hero: FC<HeroProps> = ({connectAction, isConnected, isLoading}) => {
           <TokensWrapper>
             <div className={'token-holder'}>
               <div className={'first-col'}>
-                <Token image={tokens[0].image} name={tokens[0].name}/>
-                <Token image={tokens[1].image} name={tokens[1].name}/>
+                <Token image={tokens[0].image} name={tokens[0].name} checked={false} opacity={false} />
+                <Token image={tokens[1].image} name={tokens[1].name} checked={false} opacity={false} />
               </div>
             </div>
             <div className={'token-holder'}>
               <div className={'second-col'}>
-                <Token image={tokens[2].image} name={tokens[2].name}/>
-                <Token image={devcon} name={'Devcon 6'}/>
-                <Token image={tokens[4].image} name={tokens[4].name}/>
+                <Token image={tokens[2].image} name={tokens[2].name} checked={false} opacity={false} />
+                <Token image={tokens[3].image} name={tokens[3].name} checked={false} opacity={false} />
+                <Token image={tokens[4].image} name={tokens[4].name} checked={false} opacity={false} />
               </div>
             </div>
             <div className={'token-holder'}>
               <div className={'third-col'}>
-                <Token image={tokens[5].image} name={tokens[5].name}/>
-                <Token image={tokens[6].image} name={tokens[6].name}/>
+                <Token image={tokens[5].image} name={tokens[5].name} checked={false} opacity={false} />
+                <Token image={tokens[6].image} name={tokens[6].name} checked={false} opacity={false} />
               </div>
             </div>
           </TokensWrapper>

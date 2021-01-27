@@ -11,7 +11,6 @@ import {ROUTES} from 'lib/helpers/constants';
 // UI
 import MainLayout from 'ui/layouts/MainLayout';
 import PageTitle from './components/PageTitle';
-import SignatureForm from './components/SignatureForm';
 import UserTokens from './components/UserTokens';
 
 // Types
@@ -23,9 +22,9 @@ const Wrapper = styled.div`
 `;
 
 
-const UserSignature: FC = () => {
+const ScavengerHunt: FC = () => {
   const { push } = useHistory();
-  const {isConnected, poaps, account, disconnectWallet, signMessage} = useStateContext();
+  const {isConnected, poaps} = useStateContext();
 
   useEffect(() => {
     if(!isConnected) push(ROUTES.home);
@@ -34,17 +33,11 @@ const UserSignature: FC = () => {
   return (
     <MainLayout>
       <Wrapper>
-        <PageTitle tokens={poaps as UserPoap[]} />
-        <SignatureForm
-          account={account}
-          tokens={poaps as UserPoap[]}
-          fallbackAction={disconnectWallet}
-          mainAction={signMessage}
-        />
+        <PageTitle />
         <UserTokens tokens={poaps as UserPoap[]} />
       </Wrapper>
     </MainLayout>
   )
 };
 
-export default UserSignature;
+export default ScavengerHunt;

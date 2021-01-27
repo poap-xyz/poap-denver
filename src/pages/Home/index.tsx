@@ -17,7 +17,7 @@ const Home: FC = () => {
   const {connectWallet, isConnected, isFetchingPoaps} = useStateContext();
 
   useEffect(() => {
-    if(isConnected && !isFetchingPoaps) push(ROUTES.userSignature);
+    if(isConnected && !isFetchingPoaps) push(ROUTES.scavengerHunt);
   }, [isConnected, isFetchingPoaps, push]);
 
   return (

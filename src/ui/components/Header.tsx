@@ -6,7 +6,7 @@ import {BREAKPOINTS} from 'lib/styles';
 
 // Assets
 import logo from 'assets/images/POAP.svg';
-import devcon from 'assets/images/devcon.png';
+import denver from 'assets/images/denver.png';
 
 // UI
 import Nabvar from 'ui/styled/Navbar';
@@ -41,7 +41,7 @@ const LogoContainer = styled.div`
     position: relative;
     top: 18px;
   }
-  .devcon {
+  .denver {
     margin-left: 30px;
     height: 40px;
     position: relative;
@@ -65,7 +65,7 @@ const Header: FC<HeaderProps> = ({isConnected, connectAction, disconnectAction, 
       <HeaderWrapper>
         <LogoContainer>
           <img src={logo} alt={'POAP'} className={'poap'}/>
-          <img src={devcon} alt={'Devcon'} className={'devcon'}/>
+          <img src={denver} alt={'ETHDenver'} className={'denver'}/>
         </LogoContainer>
         <ActionContainer>
           {isConnected && (

@@ -39,7 +39,7 @@ const UserTokens: FC<UserTokenProps> = ({tokens}) => {
         <TokensWrapper>
           {tokens.map((token) => {
             return (
-              <Token image={token.event.image_url} name={token.event.name} key={token.tokenId} />
+              <Token image={token.event.image_url} name={token.event.name} key={token.tokenId} checked={true} opacity={false}  />
             );
           })}
         </TokensWrapper>

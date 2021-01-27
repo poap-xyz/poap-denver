@@ -6,12 +6,12 @@ import {ROUTES} from 'lib/helpers/constants';
 
 // Pages
 import Home from 'pages/Home';
-import UserSignature from 'pages/UserSignature';
+import ScavengerHunt from 'pages/ScavengerHunt';
 
 
 const publicRoutes = [
   {Component: Home, path: ROUTES.home},
-  {Component: UserSignature, path: ROUTES.userSignature},
+  {Component: ScavengerHunt, path: ROUTES.scavengerHunt},
 ];
 
 const Routes = () => (

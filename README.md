@@ -1,17 +1,17 @@
-# 🎖 POAP Devcon 🎖
+# 🎖 POAP Denver - Scavenger Hunt 🎖
 
 <div align="center">
-  <img src="https://img.shields.io/github/issues/poap-xyz/poap-devcon?style=for-the-badge">
-  <img src="https://img.shields.io/github/issues-pr/poap-xyz/poap-devcon?style=for-the-badge">
+  <img src="https://img.shields.io/github/issues/poap-xyz/poap-denver?style=for-the-badge">
+  <img src="https://img.shields.io/github/issues-pr/poap-xyz/poap-denver?style=for-the-badge">
   <a href="https://t.me/poapxyz">
     <img src="https://img.shields.io/badge/Telegram-POAP-blue?style=for-the-badge&logo=telegram&message=Telegram&color=blue" alt="Chat on Telegram">
   </a>
 </div>
 
 ## Intro
-POAP has joined forces with [Devcon](https://devcon.org/) to get builder discounts to the most active members of the community.
+POAP has joined forces with [ETH Denver](https://www.ethdenver.com/) to organize a Scavenger Hunt.
 
-Prove ownership of your address and POAPs, and submit your request for a discount at the official Devcon site.
+Check the POAPs you have and learn about the ones you're missing.
 
 ## Project
 This project was built with React and Typescript
