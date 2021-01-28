@@ -34,7 +34,7 @@ const PageTitle: FC<UserTokenProps> = () => {
     <Container>
       <Wrapper>
         <Title>
-          Keep growing your collection!
+          Keep growing your ETHDenver 2021 collection!
         </Title>
       </Wrapper>
     </Container>

@@ -56,9 +56,14 @@ export const mainStyles = css`
   #WEB3_CONNECT_MODAL_ID {
     position: relative;
     z-index: 50;
+    .web3modal-provider-name,
+    .web3modal-provider-description {
+      font-family: var(--main-font) !important;
+    }
   }
 
   button {
+    border-style: solid;
     &:focus {
       box-shadow: none !important;
       outline: none;

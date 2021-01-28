@@ -139,30 +139,65 @@ const CommunityContainer = styled.div`
       width: 100%;
       &.twitter {
         background: url(${twitter}) center / contain no-repeat;
+        &::before {
+          position: absolute;
+          width: 0;
+          height: 0;
+          background: url(${twitterHover});
+          content: '';
+        }
         &:hover{
           background: url(${twitterHover}) center / contain no-repeat;
         }
       }
       &.github {
         background: url(${github}) center / contain no-repeat;
+        &::before {
+          position: absolute;
+          width: 0;
+          height: 0;
+          background: url(${githubHover});
+          content: '';
+        }
         &:hover{
           background: url(${githubHover}) center / contain no-repeat;
         }
       }
       &.telegram {
         background: url(${telegram}) center / contain no-repeat;
+        &::before {
+          position: absolute;
+          width: 0;
+          height: 0;
+          background: url(${telegramHover});
+          content: '';
+        }
         &:hover{
           background: url(${telegramHover}) center / contain no-repeat;
         }
       }
       &.reddit {
         background: url(${reddit}) center / contain no-repeat;
+        &::before {
+          position: absolute;
+          width: 0;
+          height: 0;
+          background: url(${redditHover});
+          content: '';
+        }
         &:hover{
           background: url(${redditHover}) center / contain no-repeat;
         }
       }
       &.discord {
         background: url(${discord}) center / contain no-repeat;
+        &::before {
+          position: absolute;
+          width: 0;
+          height: 0;
+          background: url(${discordHover});
+          content: '';
+        }
         &:hover{
           background: url(${discordHover}) center / contain no-repeat;
         }

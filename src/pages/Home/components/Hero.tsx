@@ -19,15 +19,16 @@ import Container from 'ui/styled/Container';
 // Styled Components
 const HeroWrapper = styled.div`
   display: flex;
-  flex-direction: column-reverse;
-  padding: 100px 0 50px;
+  flex-direction: column;
+  padding: 25px 0;
   position: relative;
   z-index: 3;
   @media (min-width: ${BREAKPOINTS.md}) {
     flex-direction: row;
+    padding: 100px 0 50px;
   }
 `;
-const DiscountWrapper = styled.div`
+const TitleWrapper = styled.div`
   flex: 1;
   
   @media (max-width: ${BREAKPOINTS.md}) {
@@ -45,6 +46,8 @@ const DiscountWrapper = styled.div`
   
     @media (max-width: ${BREAKPOINTS.md}) {
       margin: 0 auto;
+      font-size: ${FONT_SIZE.xl};
+      line-height: ${LINE_HEIGHT.xl};
     }
   }
   p {
@@ -112,7 +115,7 @@ const Hero: FC<HeroProps> = ({connectAction, isConnected, isLoading}) => {
       <BackgroundImage />
       <Container>
         <HeroWrapper>
-          <DiscountWrapper>
+          <TitleWrapper>
             <div className={'main-title'}>
               Collect your POAPs from ETHDenver Virtual 2021
             </div>
@@ -122,7 +125,7 @@ const Hero: FC<HeroProps> = ({connectAction, isConnected, isLoading}) => {
             <div className={'cta'}>
               <Button action={connectAction} text={'Connect wallet'} loading={isLoading}/>
             </div>
-          </DiscountWrapper>
+          </TitleWrapper>
           <TokensWrapper>
             <div className={'token-holder'}>
               <div className={'first-col'}>

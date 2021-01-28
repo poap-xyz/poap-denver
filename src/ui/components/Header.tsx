@@ -42,6 +42,7 @@ const LogoContainer = styled.div`
     top: 18px;
   }
   .denver {
+    margin-top: 5px;
     margin-left: 30px;
     height: 40px;
     position: relative;
