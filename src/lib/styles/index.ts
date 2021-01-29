@@ -52,7 +52,7 @@ export const mainStyles = css`
     margin: 0;
   }
 
-  /* Web3 Modal Hack*/
+  /* Web3 & Modal Hack*/
   #WEB3_CONNECT_MODAL_ID {
     position: relative;
     z-index: 50;
@@ -60,6 +60,9 @@ export const mainStyles = css`
     .web3modal-provider-description {
       font-family: var(--main-font) !important;
     }
+  }
+  .ReactModal__Overlay {
+    z-index: 50 !important;
   }
 
   button {

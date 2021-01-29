@@ -129,21 +129,21 @@ const Hero: FC<HeroProps> = ({connectAction, isConnected, isLoading}) => {
           <TokensWrapper>
             <div className={'token-holder'}>
               <div className={'first-col'}>
-                <Token image={tokens[0].image} name={tokens[0].name} withCheck={false} withOpacity={false} />
-                <Token image={tokens[1].image} name={tokens[1].name} withCheck={false} withOpacity={false} />
+                <Token image={tokens[0].image} name={tokens[0].name}/>
+                <Token image={tokens[1].image} name={tokens[1].name}/>
               </div>
             </div>
             <div className={'token-holder'}>
               <div className={'second-col'}>
-                <Token image={tokens[2].image} name={tokens[2].name} withCheck={false} withOpacity={false} />
-                <Token image={tokens[3].image} name={tokens[3].name} withCheck={false} withOpacity={false} />
-                <Token image={tokens[4].image} name={tokens[4].name} withCheck={false} withOpacity={false} />
+                <Token image={tokens[2].image} name={tokens[2].name}/>
+                <Token image={tokens[3].image} name={tokens[3].name}/>
+                <Token image={tokens[4].image} name={tokens[4].name}/>
               </div>
             </div>
             <div className={'token-holder'}>
               <div className={'third-col'}>
-                <Token image={tokens[5].image} name={tokens[5].name} withCheck={false} withOpacity={false} />
-                <Token image={tokens[6].image} name={tokens[6].name} withCheck={false} withOpacity={false} />
+                <Token image={tokens[5].image} name={tokens[5].name}/>
+                <Token image={tokens[6].image} name={tokens[6].name}/>
               </div>
             </div>
           </TokensWrapper>
