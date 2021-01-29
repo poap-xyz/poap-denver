@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import styled from '@emotion/styled';
 
 // Components
@@ -32,26 +32,65 @@ const InteractiveTokenWrapper = styled.div<TokenWrapperProps>`
   
   .check {
     position: absolute;
-    top: 15px;
-    right: -5px;
+    top: 0;
+    right: -8px;
     @media (min-width: ${BREAKPOINTS.sm}) {
-      right: 5px !important;
+      top: 5px;
+      right: -5px;
     }
     
     @media (min-width: ${BREAKPOINTS.md}) {
-      right: 10px !important;
+      top: 5px;
+      right: 0;
     }
+  }
+`;
+const TokenHover = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  
+  div {
+    text-transform: uppercase;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 7px 10px 5px;
+    font-size: 14px;
+    font-weight: bold;
   }
 `;
 
 
 const InteractiveToken: FC<InteractiveTokenProps> = ({image, name, description, withOpacity, withCheck, onClick}) => {
+  const [isHovering, setIsHovering] = useState<boolean>(false);
+
+  const handleMouseHoverIn = () => setIsHovering(true);
+  const handleMouseHoverOut = () => setIsHovering(false);
 
   return (
-    <InteractiveTokenWrapper withOpacity={withOpacity} onClick={onClick}>
+    <InteractiveTokenWrapper
+      withOpacity={withOpacity && !isHovering}
+      onClick={onClick}
+      onMouseEnter={handleMouseHoverIn}
+      onMouseLeave={handleMouseHoverOut}
+    >
       <Token image={image} name={name} />
       {withCheck && (
         <img className={'check'} src={checkSign} alt={'Checked!'} />
+      )}
+      {isHovering && !withCheck && (
+        <TokenHover>
+          <div>How to get</div>
+        </TokenHover>
       )}
     </InteractiveTokenWrapper>
   )
