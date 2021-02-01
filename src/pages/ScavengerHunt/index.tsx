@@ -33,8 +33,9 @@ const ScavengerHunt: FC = () => {
 
   useEffect(() => {
     if (events) {
-      const _events: PoapEvent[] = events as PoapEvent[];
-      setDenverEvents(_events.filter(each => DENVER_EVENTS.indexOf(each.id) > -1))
+      let _events: PoapEvent[] = events as PoapEvent[];
+      _events = _events.filter(each => DENVER_EVENTS.indexOf(each.id) > -1)
+      setDenverEvents(_events.sort((a, b) => a.id - b.id))
     }
   }, [events]);
 
