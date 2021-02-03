@@ -59,6 +59,14 @@ const TitleWrapper = styled.div`
     @media (max-width: ${BREAKPOINTS.md}) {
       margin: 0 auto;
     }
+    
+    a {
+      text-decoration: none !important;
+      color: var(--main-color) !important;
+      &:visited {
+        color: var(--main-color) !important;
+      }
+    }
   }
 `;
 const TokensWrapper = styled.div`
@@ -112,7 +120,7 @@ const Hero: FC<HeroProps> = ({connectAction, isConnected, isLoading}) => {
   const [tokens] = useState<LocalEvent[]>(sortedEvents.slice(0, 7));
   return (
     <>
-      <BackgroundImage />
+      <BackgroundImage/>
       <Container>
         <HeroWrapper>
           <TitleWrapper>
@@ -120,7 +128,14 @@ const Hero: FC<HeroProps> = ({connectAction, isConnected, isLoading}) => {
               Collect your POAPs from ETHDenver Virtual 2021
             </div>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              Join us virtually for <a href={'https://www.ethdenver.com/'}
+                                       target={'_blank'}
+                                       rel={'noreferrer'}>ETHDenver and Colorado Jam 2021</a> and grow your <a
+              href={'https://wwww.poap.xyz'}
+              target={'_blank'}
+              rel={'noreferrer'}>POAP</a> collection.
+              Earn NFT badges by finding collectible gems, making a move on the dance floor, bidding on a piece of art,
+              and much more! Connect your wallet and start collecting.
             </p>
             <div className={'cta'}>
               <Button action={connectAction} text={'Connect wallet'} loading={isLoading}/>
