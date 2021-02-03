@@ -131,7 +131,7 @@ const Hero: FC<HeroProps> = ({connectAction, isConnected, isLoading}) => {
               Join us virtually for <a href={'https://www.ethdenver.com/'}
                                        target={'_blank'}
                                        rel={'noreferrer'}>ETHDenver and Colorado Jam 2021</a> and grow your <a
-              href={'https://wwww.poap.xyz'}
+              href={'https://www.poap.xyz'}
               target={'_blank'}
               rel={'noreferrer'}>POAP</a> collection.
               Earn NFT badges by finding collectible gems, making a move on the dance floor, bidding on a piece of art,
